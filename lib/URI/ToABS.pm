@@ -2,7 +2,7 @@ package URI::ToABS;
 use warnings;
 use strict;
 use Carp;
-use version; our $VERSION = qv('0.0.1');
+use version; our $VERSION = qv('0.0.2');
 
 use Exporter;
 our @ISA = qw/Exporter/;
@@ -10,6 +10,8 @@ our @EXPORT = qw/uri_to_abs/;
 
 sub uri_to_abs {
     my($url) = @_;
+    return $url unless ($url =~ /^http/);
+    
     my @paths = split /\//, $url;
     my @results = ($paths[0]);
     for (my $i = 1; $i < ($#paths+1); $i++) {
@@ -36,7 +38,7 @@ URI::ToABS - convert url has relative paths("..", ".") to absolute path.
 
 =head1 VERSION
 
-This document describes URI::ToABS version 0.0.1
+This document describes URI::ToABS version 0.0.2
 
 
 =head1 SYNOPSIS
