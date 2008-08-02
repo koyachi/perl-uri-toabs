@@ -2,7 +2,7 @@ package URI::ToABS;
 use warnings;
 use strict;
 use Carp;
-use version; our $VERSION = qv('0.0.2');
+use version; our $VERSION = qv('0.0.3');
 
 use Exporter;
 our @ISA = qw/Exporter/;
@@ -12,6 +12,7 @@ sub uri_to_abs {
     my($url) = @_;
     return $url unless ($url =~ /^http/);
     
+    my $end = ($url =~ /^.*\/$/) ? '/' : '';
     my @paths = split /\//, $url;
     my @results = ($paths[0]);
     for (my $i = 1; $i < ($#paths+1); $i++) {
@@ -24,7 +25,7 @@ sub uri_to_abs {
         }
         push @results, $current_path;
     }
-    join('/', @results);
+    join('/', @results) . $end;
 }
 
 

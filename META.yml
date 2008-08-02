@@ -1,6 +1,6 @@
 ---
 name: URI-ToABS
-version: v0.0.2
+version: v0.0.3
 author:
   - 'Tsutomu KOYACHI <rtk2106@gmail.com>'
 abstract: 'convert url has relative paths("..", ".") to absolute path.'
@@ -13,7 +13,7 @@ requires:
 provides:
   URI::ToABS:
     file: lib/URI/ToABS.pm
-    version: v0.0.2
+    version: v0.0.3
 generated_by: Module::Build version 0.2806
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
